@@ -34,6 +34,21 @@ Reel, Swish), so ask him before it goes public or gets a plugin id.
   it's the one legitimate layer that sees and can rewrite text in every app.
   keyd/evdev-level hacks can't know the field type or the surrounding text.
 
+### Decided 2026-09-21 after research (see RESEARCH.md)
+
+- **Clean C++ fcitx5 module** (PreInputMethod key watcher). Not an engine, not a
+  smartcomplete fork; we borrow its replace logic (MIT). `keyboard-us` and Compose stay untouched.
+- **Tier-1 data = both lists merged:** AutoCorrect.ahk + Wikipedia (CC BY-SA) AND espanso
+  typofixer (GPL-3.0), filtered so no real dictionary word is ever auto-changed. Credit sources
+  and keep the licences with the data.
+- **Text expansion too:** abbreviations such as `mha` → Fred's home address. Same replace path
+  and same Backspace undo. **Personal expansions live OUTSIDE the repo** (e.g.
+  `~/.config/autocorrect/expansions`) and are never committed, because the repo will likely be
+  public. Check how this overlaps with the built-in `libquickphrase` (it needs a trigger key and a
+  popup, so it isn't automatic).
+- Brave/Chromium: `--enable-wayland-ime` added to `~/.config/{brave,chromium}-flags.conf`
+  (backups `*.bak-2026-09-21`). Needs a Brave restart, then re-test Compose.
+
 ## Hard guardrails (these are what keep it from being dangerous)
 
 - **Never act in password fields.** fcitx5 gets content-purpose/hints from
