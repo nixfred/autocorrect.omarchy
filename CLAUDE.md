@@ -6,7 +6,12 @@
 > possible to have you automatically spell check and fix my typing real time
 > globally with a quick 'no I meant to type that wrong' button?"*
 
-**Status (2026-09-21): PoC installed LIVE on vic.** `/usr/lib/fcitx5/libautocorrect.so` +
+**Status: SHELVED 2026-09-21 by Fred ("shelve it and think on it").** Not loaded in fcitx5. The two
+installed files were moved to `.shelved-2026-09-21/` (gitignored), `~/.config/autocorrect/off` exists, and
+`~/.config/autocorrect/expansions` (the personal address) is still on disk. Before that it ran live for ~12 min and fixed 4 words + 1 expansion
+in omawrite. To revive: `sudo cmake --install build`, `rm ~/.config/autocorrect/off`, restart omarchy-fcitx5.
+
+*Was:* PoC installed LIVE on vic. `/usr/lib/fcitx5/libautocorrect.so` +
 `/usr/share/fcitx5/addon/autocorrect.conf` (via `sudo cmake --install build`). Runtime files:
 `~/.local/share/autocorrect.omarchy/typomap.tsv` (from `bun tools/build-typomap.ts`) and
 `~/.config/autocorrect/{expansions,never,deny,off}`. Kill switch: `touch ~/.config/autocorrect/off`.
