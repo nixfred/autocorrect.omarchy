@@ -1,0 +1,12 @@
+[Addon]
+Name=Autocorrect
+Comment=Fix typos and expand abbreviations as you type; Backspace undoes
+Category=Module
+Version=@PROJECT_VERSION@
+Library=libautocorrect
+Type=SharedLibrary
+OnDemand=False
+Configurable=False
+
+[Addon/Dependencies]
+0=core:5.1.0
