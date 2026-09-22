@@ -6,9 +6,14 @@
 > possible to have you automatically spell check and fix my typing real time
 > globally with a quick 'no I meant to type that wrong' button?"*
 
-**Status: nothing built yet.** No code, no research done beyond the state survey
-below. `autocorrect.omarchy` is a working name; Fred names things (Pulse, Halo,
-Reel, Swish), so ask him before it goes public or gets a plugin id.
+**Status (2026-09-21): PoC installed LIVE on vic.** `/usr/lib/fcitx5/libautocorrect.so` +
+`/usr/share/fcitx5/addon/autocorrect.conf` (via `sudo cmake --install build`). Runtime files:
+`~/.local/share/autocorrect.omarchy/typomap.tsv` (from `bun tools/build-typomap.ts`) and
+`~/.config/autocorrect/{expansions,never,deny,off}`. Kill switch: `touch ~/.config/autocorrect/off`.
+Remove: delete the two /usr files, then `systemctl --user restart omarchy-fcitx5`.
+Outcome log (no typed text): `journalctl --user -u omarchy-fcitx5 -o cat | grep autocorrect`.
+Tests: `cmake -S . -B build && cmake --build build && ctest --test-dir build`.
+The name `autocorrect.omarchy` was kept by Fred for the public repo; the plugin id is still his call.
 
 ---
 
