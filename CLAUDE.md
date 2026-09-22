@@ -7,9 +7,13 @@
 > globally with a quick 'no I meant to type that wrong' button?"*
 
 **Status: SHELVED 2026-09-21 by Fred ("shelve it and think on it").** Not loaded in fcitx5. The two
-installed files were moved to `.shelved-2026-09-21/` (gitignored), `~/.config/autocorrect/off` exists, and
-`~/.config/autocorrect/expansions` (the personal address) is still on disk. Before that it ran live for ~12 min and fixed 4 words + 1 expansion
-in omawrite. To revive: `sudo cmake --install build`, `rm ~/.config/autocorrect/off`, restart omarchy-fcitx5.
+installed files were moved to `.shelved-2026-09-21/` (gitignored). Then, at Fred's request, vic was put back to its
+pre-project state: the Brave/Chromium `--enable-wayland-ime` line was removed, and `~/.config/autocorrect/`
+(including the address expansion) and `~/.local/share/autocorrect.omarchy/` were deleted. The `words` pacman
+package was kept. Before that it ran live for ~12 min and fixed 4 words + 1 expansion
+in omawrite. To revive: re-add `--enable-wayland-ime` to both flag files, run `bun tools/build-typomap.ts`, copy
+`build/typomap.tsv` to `~/.local/share/autocorrect.omarchy/`, recreate `~/.config/autocorrect/expansions`,
+run `sudo cmake --install build`, then restart omarchy-fcitx5.
 
 *Was:* PoC installed LIVE on vic. `/usr/lib/fcitx5/libautocorrect.so` +
 `/usr/share/fcitx5/addon/autocorrect.conf` (via `sudo cmake --install build`). Runtime files:
