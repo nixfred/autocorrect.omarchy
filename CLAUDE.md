@@ -136,9 +136,9 @@ autocorrect/spell/espanso/fcitx found nothing, and neither did the memory grep.
   helpers, TypeScript/bun for anything else standalone.
 - **Package installs** (`fcitx5-lua`, `hunspell-en_us`) are low-risk, but say so before
   running `pacman`.
-- **Git:** `git init` done locally. **No remote yet.** Before any `gh repo create`,
-  ask Fred public vs private. His plugins are usually PUBLIC under `nixfred/`, so
-  sanitize before the first push (Law 11).
+- **Git:** remote `origin` = **PUBLIC** `github.com/nixfred/autocorrect.omarchy`
+  (created 2026-09-21). Sanitize before every push (Law 11). Personal expansions (the home
+  address etc.) must never enter the repo.
 
 ## Test plan skeleton
 
